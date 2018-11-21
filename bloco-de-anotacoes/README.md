@@ -1,7 +1,7 @@
 #git
-Introdução
-Instalação
-Fluxo de vida
+- Introdução
+- Instalação
+- Fluxo de vida
 Inicializando o repositório
 Trackeando arquivos e pastas
 Guardando estado local dos arquivos e pastas
