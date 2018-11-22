@@ -1,8 +1,8 @@
 import React from "react";
 
-const NavigationMenu = () => {
-    
-};
+import { Navigation }  from "./styles";
 
-export default NavigationMenu;
+const NavigationEvents = () => <Navigation />;
+
+export default NavigationEvents;
 
