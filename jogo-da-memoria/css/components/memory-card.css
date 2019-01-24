@@ -1,6 +1,7 @@
 :root{
     --warm-pink: #f25a70;
 }
+
 .memory-card{
     width: 155px;
     height: 155px;
@@ -11,6 +12,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    cursor: pointer;
 }
 
 .memory-card.-front{
