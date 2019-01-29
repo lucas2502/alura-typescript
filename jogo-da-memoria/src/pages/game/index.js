@@ -2,11 +2,13 @@ const $root = document.querySelector("#root");
 
 const $cardsWrapper =  createCardsWrapper();
 
-const memoryCard = {
+const createMemoryCard = memoryCard();
+
+const $memoryCardGaio = createMemoryCard({
     nameClass: "",
     nameImg: "icon-collabcode.png", 
     nameAlt: "Gaio mascote collacode"
-    };
+    });
 
 const $memoryCardCPlusPlus = createMemoryCard({
     nameClass:  "-front",
@@ -59,6 +61,7 @@ const $memoryCardWoman = createMemoryCard({
     nameImg: "icon-woman.png", 
     nameAlt: "Icon Woman"
     });
+    
     $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardCPlusPlus);
     $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardCPlusPlus);
     $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJs);
