@@ -10,24 +10,41 @@ const memoryCard = () => {
                 --warm-pink: #f25a70;
             }
             
-            .memory-card{
+            .memory-card {
                 width: 155px;
                 height: 155px;
-                box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+                position: relative;
+            }
+
+            .memory-card .card{
+                width: 100%;
+                height: 100%;
                 background-color: var(--warm-pink);
                 border-radius: 30px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
                 position: relative;
                 cursor: pointer;
+                position: absolute;
+                
             }
-            
-            .memory-card.-front{
+            .memory-card.-active .card {
+                display: none;
+            }
+
+            .memory-card.-active .card.-front {
+                display: flex;
+            }
+
+
+            .memory-card .card.-front{
                 background-color: #fff;
+                
             }
             
-            .memory-card.-front::before{
+            .memory-card .card.-front::before{
                 content:"";
                 width: 100px;
                 height: 100px;
@@ -36,12 +53,12 @@ const memoryCard = () => {
                 position: absolute;
             }
             
-            .memory-card > .icon {
+            .memory-card .card > .icon {
                 width: 100px;
                 height: 100px;
             }
             
-            .memory-card.-front > .icon {
+            .memory-card .card.-front > .icon {
                 position: absolute;
                 transform: translateY(-10px);
             }   
@@ -53,27 +70,32 @@ const memoryCard = () => {
     
     
     return (card) => `
-        <article class="memory-card ${card.nameClass}">
-            <img src='img/${card.nameImg}' 
-            alt='${card.nameAlt}' 
-            class='icon' onClick="handleClick()">
-        </article>
+        <div class="memory-card -active" onClick="handleClick(this)"> 
+            <article class="card -front">
+                <img 
+                src='img/${card.nameImg}' 
+                alt='${card.nameAlt}' 
+                class='icon'>
+            </article>
+            <article class="card">
+                <img 
+                src='img/icon-collabcode.png' 
+                alt='O mascoste Gueio' 
+                class='icon' >
+            </article>
+        </div>
     `;
     
 };
 
+const handleClick = $component => {
+    $component.classList.toggle("-active");
+    console.log(this)
+};
 
 /*
-function createMemoryCardFront(){
-    const $memoryCardFront = `
-    <article class="memory-card -front">
-        <img src='img/icon-c.png' 
-        alt='Gaio Mascote da Collabcode' 
-        class='icon' onClick="handleClick()">
-    </article>
-    `;
-    return $memoryCardFront;
-};*/
-
-
-const handleClick = () => console.log("Funciona");
+    ficar 2 sgundos e desvirar
+    nao virar mais de duas 
+    informar certo ou errado
+    randon cards
+*/

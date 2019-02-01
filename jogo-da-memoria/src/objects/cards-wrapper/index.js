@@ -5,13 +5,15 @@ function createCardsWrapper(){
     const $head = document.querySelector("head");
     const $style = document.createElement("style");
 
-    $style.textContent =  `
+    $style.textContent =`
         .cards-wrapper{
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
+            padding-top: 10px;
+            width: 100vw;
         }
-        .cards-wrapper > .memory-card{
+        .cards-wrapper > div{
             margin: 10px 0px 10px 0px;
         }
     `;
