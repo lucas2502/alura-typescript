@@ -1,4 +1,5 @@
 function createCardsWrapper(){
+    let $qtdCards = 0;
     const $cardsWrapper = document.createElement("section");
     $cardsWrapper.classList.add("cards-wrapper");
     
@@ -19,6 +20,27 @@ function createCardsWrapper(){
     `;
     
     $head.insertBefore($style, null);
+
+    $cardsWrapper.addEventListener('click', (event) => {
+        
+        $qtdActiveMemoryCard = $cardsWrapper.querySelectorAll(".memory-card.-active").length;
+        
+        console.log($qtdActiveMemoryCard);
+        //Modo Complexo
+        /*const $origin = event.target;
+        console.log("origin", $origin);
+
+        const $isActiveCard = $origin.closest(".memory-card").classList.contains("-active");
+        console.log("isActiveCard: ", $isActiveCard);
+
+        if($isActiveCard){
+            $qtdCards ++;
+        }else{
+            $qtdCards --;
+        };
+
+        console.log("QTD: ",$qtdCards);*/
+    });
     
     return $cardsWrapper;
 }

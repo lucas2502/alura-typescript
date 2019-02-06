@@ -16,6 +16,14 @@ const memoryCard = () => {
                 position: relative;
             }
 
+            .memory-card -true{
+                backgorund-color: green;
+            }
+
+            .memory-card -false{
+                background-color: red;
+            }
+
             .memory-card .card{
                 width: 100%;
                 height: 100%;
@@ -73,25 +81,29 @@ const memoryCard = () => {
         <div class="memory-card -active" onClick="handleClick(this)"> 
             <article class="card -front">
                 <img 
-                src='img/${card.nameImg}' 
-                alt='${card.nameAlt}' 
-                class='icon'>
+                src="img/${card.nameImg}" 
+                alt="${card.nameAlt}" 
+                class="icon">
             </article>
+
             <article class="card">
                 <img 
-                src='img/icon-collabcode.png' 
-                alt='O mascoste Gueio' 
-                class='icon' >
+                src="img/icon-collabcode.png" 
+                alt="O mascoste Gueio" 
+                class="icon" >
             </article>
         </div>
-    `;
+        `;
     
 };
 
 const handleClick = $component => {
     $component.classList.toggle("-active");
-    console.log(this)
+    //console.log(this);
+    
 };
+
+
 
 /*
     ficar 2 sgundos e desvirar

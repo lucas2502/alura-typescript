@@ -52,17 +52,17 @@ const $memoryCardWoman = createMemoryCard({
 
 
 
-    //Teste creat round start cards positions
-    let cards = [
-        $memoryCardCPlusPlus,
-        $memoryCardCPlusPlus,
-        $memoryCardJs,
-        $memoryCardJs,
-        $memoryCardBug,
-        $memoryCardBug,
-        $memoryCardCabeca,
-        $memoryCardCabeca
-    ];    
+//Teste creat round start cards positions
+let cards = [
+    $memoryCardCPlusPlus,
+    $memoryCardCPlusPlus,
+    $memoryCardJs,
+    $memoryCardJs,
+    $memoryCardBug,
+    $memoryCardBug,
+    $memoryCardCabeca,
+    $memoryCardCabeca
+];    
     
 
 
@@ -76,15 +76,12 @@ const randomCards = ((value) => {
         value[round] = value[index];
         value[index] = temp;
         
-        return  $cardsWrapper.insertAdjacentHTML("beforeend", value); 
+         
     };
+    return  $cardsWrapper.insertAdjacentHTML("beforeend", value);
 })(cards);
 
-    
-    
-
-
-    /*
+/*
     $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardCPlusPlus);
     $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardCPlusPlus);
     $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJs);
