@@ -16,12 +16,14 @@ const memoryCard = () => {
                 position: relative;
             }
 
-            .memory-card -true{
-                backgorund-color: green;
+            #root -true{
+                backgorund-color: rgb(147, 250, 20);
+                opacity: 0.7;
             }
 
-            .memory-card -false{
-                background-color: red;
+            #root -false{
+                background-color: rgb(243, 59, 2);
+                opacity: 0.7;
             }
 
             .memory-card .card{
@@ -78,7 +80,7 @@ const memoryCard = () => {
     
     
     return (card) => `
-        <div class="memory-card -active" onClick="handleClick(this)"> 
+        <div class="memory-card " onClick="handleClick(this)"> 
             <article class="card -front">
                 <img 
                 src="img/${card.nameImg}" 
@@ -86,21 +88,44 @@ const memoryCard = () => {
                 class="icon">
             </article>
 
-            <article class="card">
+            <article class="card -active">
                 <img 
                 src="img/icon-collabcode.png" 
                 alt="O mascoste Gueio" 
-                class="icon" >
+                class="icon">
             </article>
         </div>
         `;
     
 };
-
+let $point = 30;
 const handleClick = $component => {
-    $component.classList.toggle("-active");
-    //console.log(this);
-    
+    if(!$component.classList.contains("-active")){
+        if($qtdActiveMemoryCard < 2 ) {
+            $component.classList.toggle("-active");
+        };
+        
+        if($qtdActiveMemoryCard == 1){
+            const $memoryCards = document.querySelectorAll(".memory-card.-active");
+            
+            if(
+                $memoryCards[0].querySelector(".-front .icon").getAttribute("src") ==
+                $memoryCards[1].querySelector(".-front .icon").getAttribute("src")
+            ){
+                console.log("=");
+            }
+            setTimeout(() => {
+                const $activeMemoryCards = document.querySelectorAll(
+                    ".memory-card.-active"
+                );
+
+                $activeMemoryCards.forEach($memoryCard => {
+                    $memoryCard.classList.remove("-active");
+                });
+                $qtdActiveMemoryCard = 0;
+            }, 1500);
+        };
+    };
 };
 
 

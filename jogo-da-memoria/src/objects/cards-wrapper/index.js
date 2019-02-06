@@ -1,5 +1,6 @@
+let $qtdActiveMemoryCard = 0;
+
 function createCardsWrapper(){
-    let $qtdCards = 0;
     const $cardsWrapper = document.createElement("section");
     $cardsWrapper.classList.add("cards-wrapper");
     
@@ -22,10 +23,8 @@ function createCardsWrapper(){
     $head.insertBefore($style, null);
 
     $cardsWrapper.addEventListener('click', (event) => {
-        
         $qtdActiveMemoryCard = $cardsWrapper.querySelectorAll(".memory-card.-active").length;
         
-        console.log($qtdActiveMemoryCard);
         //Modo Complexo
         /*const $origin = event.target;
         console.log("origin", $origin);
