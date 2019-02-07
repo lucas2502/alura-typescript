@@ -96,23 +96,15 @@ const memoryCard = () => {
     
 };
 
-
-const handleClick = $component => {
-    if(!$component.classList.contains("-active")){
-        activeMemoryCard($component);
-        checkSure();
-    };
-    
-};
-
+(() =>{
 const activeMemoryCard = ($component) => {
-    if($qtdActiveMemoryCard < 2 ) {//limitando a quantidade de cartas viradas
+    if(store.qtdActiveMemoryCard < 2 ) {//limitando a quantidade de cartas viradas
         $component.classList.add("-active");
     };
 };
 
 const checkSure = () => {
-    if($qtdActiveMemoryCard == 1){
+    if(store.qtdActiveMemoryCard == 1){
         const $activeMemoryCards = document.querySelectorAll(
             ".memory-card.-active"
         );
@@ -136,12 +128,19 @@ const checkSure = () => {
                     $memoryCard.classList.remove("-active");
                     $backgorundGame.classList.remove("-loser")
                 });
-                $qtdActiveMemoryCard = 0;
+                store.qtdActiveMemoryCard = 0;
             }, 1500); 
         };
     };
 };
 
+return  handleClick = $component => {
+    if(!$component.classList.contains("-active")){
+        activeMemoryCard($component);
+        checkSure();
+    };
+};
+})();
 
 /*
     ficar 2 sgundos e desvirar
