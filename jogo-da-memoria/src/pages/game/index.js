@@ -1,3 +1,4 @@
+(() =>{
 const $root = document.querySelector("#root");
 
 const $cardsWrapper =  createCardsWrapper();
@@ -63,8 +64,6 @@ let cards = [
     $memoryCardCabeca,
     $memoryCardCabeca
 ];    
-    
-
 
 const randomCards = ((value) => {
     let round = value.length, temp, index;
@@ -75,8 +74,6 @@ const randomCards = ((value) => {
         temp = value[round];
         value[round] = value[index];
         value[index] = temp;
-        
-         
     };
     return  $cardsWrapper.insertAdjacentHTML("beforeend", value);
 })(cards);
@@ -94,3 +91,4 @@ const randomCards = ((value) => {
     
 
 $root.insertAdjacentElement("beforeend", $cardsWrapper);
+})();

@@ -75,9 +75,7 @@ const memoryCard = () => {
     
         $head.insertBefore($style, null);
     /*})();*/
-    
-    
-    
+        
     return (card) => `
         <div class="memory-card " onClick="handleClick(this)"> 
             <article class="card -front">
@@ -97,50 +95,52 @@ const memoryCard = () => {
         `;
     
 };
-let $score = 0;
+
 
 const handleClick = $component => {
     if(!$component.classList.contains("-active")){
-        if($qtdActiveMemoryCard < 2 ) {
-            $component.classList.toggle("-active");
-        };
-        
-        if($qtdActiveMemoryCard == 1){
-            const $memoryCards = document.querySelectorAll(".memory-card.-active");
-            const $backgorundGame = document.querySelector("#root");
-            if(
-                $memoryCards[0].querySelector(".-front .icon").getAttribute("src") ==
-                $memoryCards[1].querySelector(".-front .icon").getAttribute("src")
-            ){
-                $score ++;
-                $memoryCards.forEach($memoryCard => {
-                    $memoryCard.classList.add("-score");
-                    $memoryCard.classList.remove("-active");
-                    $backgorundGame.classList.add("-win");
-                    setTimeout(() => {$backgorundGame.classList.remove("-win")}, 1500);
-                });
-            }else{
-                $score --;
-                $backgorundGame.classList.add("-loser")
-                setTimeout(() => {
-                    const $activeMemoryCards = document.querySelectorAll(
-                        ".memory-card.-active"
-                    );
-    
-                    $activeMemoryCards.forEach($memoryCard => {
-                        $memoryCard.classList.remove("-active");
-                        $backgorundGame.classList.remove("-loser")
-                        
-                    });
-                    $qtdActiveMemoryCard = 0;
-                }, 1500);
-                
-            };
-        };
+        activeMemoryCard($component);
+        checkSure();
     };
     
 };
 
+const activeMemoryCard = ($component) => {
+    if($qtdActiveMemoryCard < 2 ) {//limitando a quantidade de cartas viradas
+        $component.classList.add("-active");
+    };
+};
+
+const checkSure = () => {
+    if($qtdActiveMemoryCard == 1){
+        const $activeMemoryCards = document.querySelectorAll(
+            ".memory-card.-active"
+        );
+        const $backgorundGame = document.querySelector("#root");
+        if(
+            $activeMemoryCards[0].querySelector(".-front .icon").getAttribute("src") ==
+            $activeMemoryCards[1].querySelector(".-front .icon").getAttribute("src")
+        ){
+            store.score++;
+            $activeMemoryCards.forEach($memoryCard => {
+                $memoryCard.classList.add("-score");
+                $memoryCard.classList.remove("-active");
+                $backgorundGame.classList.add("-win");
+                setTimeout(() => {$backgorundGame.classList.remove("-win")}, 1500);
+            });
+        }else{
+            store.score--;
+            $backgorundGame.classList.add("-loser")
+            setTimeout(() => {
+                $activeMemoryCards.forEach($memoryCard => {
+                    $memoryCard.classList.remove("-active");
+                    $backgorundGame.classList.remove("-loser")
+                });
+                $qtdActiveMemoryCard = 0;
+            }, 1500); 
+        };
+    };
+};
 
 
 /*
