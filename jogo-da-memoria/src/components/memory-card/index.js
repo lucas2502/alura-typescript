@@ -1,4 +1,7 @@
-const memoryCard = () => {
+const memoryCard = (() =>{
+const module = {}
+
+module.create = () => {
     
     /*(function style(){*/
         const $head = document.querySelector("head");
@@ -77,7 +80,7 @@ const memoryCard = () => {
     /*})();*/
         
     return (card) => `
-        <div class="memory-card " onClick="handleClick(this)"> 
+        <div class="memory-card " onClick="memoryCard.handleClick(this)"> 
             <article class="card -front">
                 <img 
                 src="img/${card.nameImg}" 
@@ -96,23 +99,21 @@ const memoryCard = () => {
     
 };
 
-
-const handleClick = $component => {
+module.handleClick = $component => {
     if(!$component.classList.contains("-active")){
-        activeMemoryCard($component);
-        checkSure();
+        module._activeMemoryCard($component);
+        module._checkSure();
     };
-    
 };
 
-const activeMemoryCard = ($component) => {
-    if($qtdActiveMemoryCard < 2 ) {//limitando a quantidade de cartas viradas
+module._activeMemoryCard = $component => {
+    if(store.qtdActiveMemoryCard < 2 ) {//limitando a quantidade de cartas viradas
         $component.classList.add("-active");
     };
 };
 
-const checkSure = () => {
-    if($qtdActiveMemoryCard == 1){
+module._checkSure = () => {
+    if(store.qtdActiveMemoryCard == 1){
         const $activeMemoryCards = document.querySelectorAll(
             ".memory-card.-active"
         );
@@ -136,16 +137,15 @@ const checkSure = () => {
                     $memoryCard.classList.remove("-active");
                     $backgorundGame.classList.remove("-loser")
                 });
-                $qtdActiveMemoryCard = 0;
+                store.qtdActiveMemoryCard = 0;
             }, 1500); 
         };
     };
 };
 
+return {
+    create: module.create,
+    handleClick: module.handleClick
+};
 
-/*
-    ficar 2 sgundos e desvirar
-    nao virar mais de duas 
-    informar certo ou errado
-    randon cards
-*/
+})();
