@@ -3,7 +3,7 @@ const $root = document.querySelector("#root");
 
 const $cardsWrapper =  createCardsWrapper();
 
-const createMemoryCard = memoryCard();
+const createMemoryCard = memoryCard.create();
 
 const $memoryCardGaio = createMemoryCard({    nameImg: "icon-collabcode.png", 
     nameAlt: "Gaio mascote collacode"

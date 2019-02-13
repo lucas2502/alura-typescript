@@ -1,4 +1,7 @@
-const memoryCard = () => {
+const memoryCard = (() =>{
+const module = {}
+
+module.create = () => {
     
     /*(function style(){*/
         const $head = document.querySelector("head");
@@ -77,7 +80,7 @@ const memoryCard = () => {
     /*})();*/
         
     return (card) => `
-        <div class="memory-card " onClick="handleClick(this)"> 
+        <div class="memory-card " onClick="memoryCard.handleClick(this)"> 
             <article class="card -front">
                 <img 
                 src="img/${card.nameImg}" 
@@ -96,14 +99,20 @@ const memoryCard = () => {
     
 };
 
-(() =>{
-const activeMemoryCard = ($component) => {
+module.handleClick = $component => {
+    if(!$component.classList.contains("-active")){
+        module._activeMemoryCard($component);
+        module._checkSure();
+    };
+};
+
+module._activeMemoryCard = $component => {
     if(store.qtdActiveMemoryCard < 2 ) {//limitando a quantidade de cartas viradas
         $component.classList.add("-active");
     };
 };
 
-const checkSure = () => {
+module._checkSure = () => {
     if(store.qtdActiveMemoryCard == 1){
         const $activeMemoryCards = document.querySelectorAll(
             ".memory-card.-active"
@@ -134,17 +143,9 @@ const checkSure = () => {
     };
 };
 
-return  handleClick = $component => {
-    if(!$component.classList.contains("-active")){
-        activeMemoryCard($component);
-        checkSure();
-    };
+return {
+    create: module.create,
+    handleClick: module.handleClick
 };
-})();
 
-/*
-    ficar 2 sgundos e desvirar
-    nao virar mais de duas 
-    informar certo ou errado
-    randon cards
-*/
+})();
