@@ -94,3 +94,8 @@ $root.insertAdjacentHTML("afterbegin", $pointBar);
 $root.insertAdjacentElement("beforeend", $cardsWrapper);
 
 })();
+
+/*
+Create start button,
+Insert point in head
+*/
