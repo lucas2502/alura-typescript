@@ -123,6 +123,7 @@ module._checkSure = () => {
             $activeMemoryCards[1].querySelector(".-front .icon").getAttribute("src")
         ){
             store.score++;
+        
             $activeMemoryCards.forEach($memoryCard => {
                 $memoryCard.classList.add("-score");
                 $memoryCard.classList.remove("-active");
@@ -138,8 +139,10 @@ module._checkSure = () => {
                     $backgorundGame.classList.remove("-loser")
                 });
                 store.qtdActiveMemoryCard = 0;
-            }, 1500); 
+            }, 1500);
         };
+        document.querySelector(".point-bar > .number").textContent = store.score;
+        //mostra na tela o score
     };
 };
 
