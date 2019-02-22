@@ -5,6 +5,7 @@ const $cardsWrapper =  createCardsWrapper();
 const createMemoryCard = memoryCard.create();
 
 const $pointBar = pointBar.create();
+const $gameButton = gameButton.render();
 
 
 const $memoryCardGaio = createMemoryCard({    nameImg: "icon-collabcode.png", 
@@ -92,6 +93,7 @@ const randomCards = ((value) => {
     */
 $root.insertAdjacentHTML("afterbegin", $pointBar);    
 $root.insertAdjacentElement("beforeend", $cardsWrapper);
+$root.insertAdjacentHTML("beforeend", $gameButton);
 
 })();
 
