@@ -3,10 +3,9 @@ const $root = document.querySelector("#root");
 
 const $cardsWrapper =  createCardsWrapper();
 const createMemoryCard = memoryCard.create();
+const $layerStart = layerStart.render("START");
 
 const $pointBar = pointBar.create();
-const $transparenceLayer = transparencyLayer.render();
-const $gameButton = gameButton.render();
 
 
 
@@ -95,12 +94,7 @@ const randomCards = ((value) => {
     */
 $root.insertAdjacentHTML("afterbegin", $pointBar);    
 $root.insertAdjacentElement("beforeend", $cardsWrapper);
-$root.insertAdjacentHTML("beforeend", $transparenceLayer);
-$root.insertAdjacentHTML("beforeend", $gameButton);
+$root.insertAdjacentHTML("beforeend", $layerStart);
 
 })();
 
-/*
-Create start button,
-Insert point in head
-*/
