@@ -15,6 +15,9 @@ const gameButton = (()=>{
                 left: 50%;
                 transform: translateX(-50%);
                 box-shadow: 0px 4px 8px #3a4042;
+                background-color: #fff;
+                color: #f25a70;
+                border-color:#f25a70;
             }
         `
 
