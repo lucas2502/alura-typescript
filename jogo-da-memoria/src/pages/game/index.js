@@ -3,8 +3,10 @@ const $root = document.querySelector("#root");
 
 const $cardsWrapper =  createCardsWrapper();
 const createMemoryCard = memoryCard.create();
+const $layerStart = layerStart.render("START");
 
 const $pointBar = pointBar.create();
+
 
 
 const $memoryCardGaio = createMemoryCard({    nameImg: "icon-collabcode.png", 
@@ -92,5 +94,7 @@ const randomCards = ((value) => {
     */
 $root.insertAdjacentHTML("afterbegin", $pointBar);    
 $root.insertAdjacentElement("beforeend", $cardsWrapper);
+$root.insertAdjacentHTML("beforeend", $layerStart);
 
 })();
+
