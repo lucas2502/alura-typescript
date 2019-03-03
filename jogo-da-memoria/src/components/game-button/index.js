@@ -18,6 +18,13 @@ const gameButton = (()=>{
                 background-color: #fff;
                 color: #f25a70;
                 border-color:#f25a70;
+                cursor: pointer;
+                transition: opacity 200ms linear;
+                
+            }
+
+            .game-button.-disable{
+                opacity: 0;
             }
         `;
 

@@ -9,7 +9,8 @@ const $pointBar = pointBar.create();
 
 
 
-const $memoryCardGaio = createMemoryCard({    nameImg: "icon-collabcode.png", 
+const $memoryCardGaio = createMemoryCard({    
+    nameImg: "icon-collabcode.png", 
     nameAlt: "Gaio mascote collacode"
     });
 
