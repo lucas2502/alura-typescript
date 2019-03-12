@@ -1,5 +1,6 @@
 const gameButton = (()=>{
     const module = {};
+    
 
     module._style = () => {
         const $head = document.querySelector("head");
@@ -35,7 +36,7 @@ const gameButton = (()=>{
         module._style();
         
         return `
-            <button class="game-button">${content}</button>
+            <button class="game-button"  >${content}</button>
         `
     };
 
@@ -43,3 +44,4 @@ const gameButton = (()=>{
         render: module.render
     };
 })();
+//onClick="layerStart.handleClick(this.parentNode)" onTransitionEnd="layerStart.handleTransitionEnd()"

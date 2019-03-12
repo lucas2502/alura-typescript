@@ -14,6 +14,8 @@ const transparencyLayer = (() => {
                 width: 100vw;
                 top: 0;
                 transition: opacity 300ms 200ms linear;
+                pointer-events: none;
+                
             }
             .transparency-layer.-disable {
                 opacity: 0;
