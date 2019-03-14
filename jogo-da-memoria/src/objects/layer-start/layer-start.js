@@ -5,16 +5,10 @@ const layerStart = (() => {
         const $children = $component.querySelectorAll("*");
 
         $children.forEach($item => $item.classList.add("-disable"));
-
-        /*const $gameButton = $component.querySelector(".game-button");
-        const $transparencyLayer = $component.querySelector(".transparency-layer");
-
-        $gameButton.classList.add("-disable");
-        $transparencyLayer.classList.add("-disable");*/
     };
 
     module.handleTransitionEnd = (event, $component) => {
-        if(event.target.classList.contains("transparency-layer")){
+        if(event.target.classList.contains("game-button")){
             $component.remove();
         }
     };
