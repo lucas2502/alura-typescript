@@ -3,7 +3,7 @@ const flatButton = (() => {
 
     module._style = () => {
         const $head = document.querySelector("head");
-        const $style = document.querySelector("style");
+        const $style = document.createElement("style");
 
         $style.textContent = `
             .flat-button {
@@ -14,6 +14,8 @@ const flatButton = (() => {
                 border: none;
                 width: 186px;
                 height: 176px;
+                text-transform: uppercase;
+                border-radius: 0 0 50% 0;
             }
         `;
 
