@@ -1,7 +1,10 @@
 (()=>{
     const $root = document.querySelector("#root");
-    const $flatButton = flatButton.render();
+
+    const $loginButton = flatButton.render('Log in');
+    const $singupButton = flatButton.render('Sing up', "-active")
 
 
-    $root.insertAdjacentHTML("beforeend", $flatButton);
+    $root.insertAdjacentHTML("beforeend", $loginButton);
+    $root.insertAdjacentHTML("beforeend", $singupButton)
 })();

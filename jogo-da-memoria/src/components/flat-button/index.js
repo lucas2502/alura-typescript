@@ -1,7 +1,7 @@
 const flatButton = (() => {
     const module = {};
 
-    module._style = () => {
+    module._style = (active) => {
         const $head = document.querySelector("head");
         const $style = document.createElement("style");
 
@@ -12,21 +12,24 @@ const flatButton = (() => {
                 font-size: 24px;
                 font-weight: bold;
                 border: none;
-                width: 186px;
+                width: 50%;
                 height: 176px;
                 text-transform: uppercase;
-                border-radius: 0 0 50% 0;
+            }
+            .flat-button.-active {
+                background-color: #f25a70;
+                color: #fff;
             }
         `;
 
         $head.insertAdjacentElement("beforeend", $style);
     };
 
-    module.render = () => {
+    module.render = (content = "", variation = "") => {
         module._style();
 
         return `
-            <button class="flat-button">Login</button>
+            <button class="flat-button ${variation}">${content}</button>
         `;
     };
 
