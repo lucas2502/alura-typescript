@@ -6,14 +6,8 @@ const logoLogin = (() => {
         const $style = document.createElement("style");
 
         $style.textContent = `
-        img {
-            text-align:center;
-        }
-
-        h1  {
-            text-align:center;
-            color: #f25a70;
-            size: 12px;
+        .logo-collabcode {
+            width: 175px;
         }
         `;
 
@@ -24,8 +18,7 @@ const logoLogin = (() => {
         module._style();
 
         return `
-            <img src="img/icon-collabcode.png">
-            <h1>Wellcome!</h1>
+            <img class="logo-collabcode" src="img/icon-collabcode.png">
         `;
     };
 
