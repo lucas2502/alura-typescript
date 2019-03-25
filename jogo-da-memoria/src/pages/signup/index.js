@@ -7,11 +7,10 @@
     const $imgLogo = logoLogin.render();
     const $titleCollabcode = titleCollabcode.render("Wellcome!");
 
-    const $logoWrapper = logoWrapper.render($imgLogo);
+    const $logoWrapper = logoWrapper.render($imgLogo, $titleCollabcode);
 
     $root.insertAdjacentHTML("beforeend", $loginButton);
     $root.insertAdjacentHTML("beforeend", $singupButton);
     $root.insertAdjacentHTML("beforeend", $logoWrapper);
-    $root.insertAdjacentHTML("beforeend", $titleCollabcode);
     
 })();

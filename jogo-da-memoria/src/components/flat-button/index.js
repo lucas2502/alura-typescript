@@ -29,9 +29,7 @@ const flatButton = (() => {
 
         module._style(active);
 
-        return `
-            <button class="flat-button-${module._id}">${content}</button>
-        `;
+        return `<button class="flat-button-${module._id}">${content}</button>`;
     };
 
     return {
