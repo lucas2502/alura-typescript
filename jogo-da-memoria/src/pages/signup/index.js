@@ -1,12 +1,16 @@
-(()=>{
+(()=> {
     const $root = document.querySelector("#root");
 
-    const $loginButton = flatButton.render('Log in');
-    const $singupButton = flatButton.render('Sing up', true)
+    const $loginButton = flatButton.render('Log in', false);
+    const $singupButton = flatButton.render('Sing up', true);
+    
     const $imgLogo = logoLogin.render();
+    const $titleCollabcode = titleCollabcode.render("Wellcome!");
 
+    const $logoWrapper = logoWrapper.render($imgLogo, $titleCollabcode);
 
     $root.insertAdjacentHTML("beforeend", $loginButton);
     $root.insertAdjacentHTML("beforeend", $singupButton);
-    $root.insertAdjacentHTML("beforeend", $imgLogo);
+    $root.insertAdjacentHTML("beforeend", $logoWrapper);
+    
 })();

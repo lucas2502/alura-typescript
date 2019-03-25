@@ -6,14 +6,14 @@ const logoLogin = (() => {
         const $style = document.createElement("style");
 
         $style.textContent = `
-        img {
-            text-align:center;
+        .logo-collabcode {
+            display: inline-block;
+            border: solid 40px #fff;
+            border-radius: 50%;
         }
-
-        h1  {
-            text-align:center;
-            color: #f25a70;
-            size: 12px;
+        .logo-collabcode > .logo {
+            width: 175px;
+            background-color: #fff;
         }
         `;
 
@@ -24,8 +24,9 @@ const logoLogin = (() => {
         module._style();
 
         return `
-            <img src="img/icon-collabcode.png">
-            <h1>Wellcome!</h1>
+            <figure class="logo-collabcode">
+                <img class="logo" src="img/icon-collabcode.png">
+            </figure>
         `;
     };
 
