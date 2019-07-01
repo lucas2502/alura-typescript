@@ -5,9 +5,7 @@ import './styles.css'
 const MenuBurguer = () => {
     return (
         <>
-            <span className="span"/>
-            <span className="span"/>
-            <span className="span"/>
+            <a href="#to-do" className="hamburguer"/>
         </>
     )
 }
