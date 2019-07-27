@@ -2,8 +2,8 @@ import React from 'react';
 import './styles.css'
 
 const Card = () => (
-    <article classNme="card">
-
+    <article className="card">
+        
     </article>
 );
 
