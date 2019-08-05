@@ -4,11 +4,14 @@ import './styles.css';
 import PlayerX from '../../img/X.png';
 import PlayerO from '../../img/Circle.png';
 
-const Player = ( props ) => {
+const Player = ( {player} ) => {
+    const players = [];
+    players['x'] = PlayerX;
+    players['o'] = PlayerO;
     
     return(
         <button className="player">
-            <img src={props.player} alt="X" />
+            <img src={players[player]} alt={`Jogador ${player} `} />
         </button>
     )
 };
