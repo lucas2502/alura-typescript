@@ -1,4 +1,4 @@
-class NegociacoesView extends View<Negociacao> {
+class NegociacoesView extends View<Negociacoes> {
 
     template(model: Negociacoes): string {
 
